@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Chat Rooms</title>
+</head>
+
+<body>
+    <h1 class="text-primary text-center">Audio chat</h1>
+    <form class="container" method="POST" action="">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Enter Room Name you would like to join</label>
+            <input type="text" class="form-control" name="room" id="room" aria-describedby="emailHelp">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {% if request.path == /live/room_name|json_script:"room-name"/join %}
+    <script type="text/javascript" src="{% static 'js/join.js' %}"></script>
+    {% endif %}
+</body>
+
+</html>

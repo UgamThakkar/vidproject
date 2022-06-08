@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+    <h3 id="lable-username">
+
+    </h3>
+    <div>
+        <input id="username"><button id="btn-join">Go Live</button>
+    </div>
+    <div class="wrapper">
+        <div id="video-container" class="inner">    
+            <div class="col">
+                <video id="local-video" autoplay="true" playsinline="true"></video>
+                <button id="btn-toggle-audio">Audio Mute</button>
+                <button id="btn-toggle-video">Turn off Video</button>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="chat">
+        <h2>Chat</h2>
+        <div id="messages">
+            <ul id="message-list"></ul>
+        </div>
+        <div><input id="msg"><button id="btn-send-msg" type="button">Send Message</button></div>
+    </div>
+    </div>
+
+    {{ room_name|json_script:"room-name" }} 
+    
+    <!-- {% url 'live:join' as url2 %} -->
+    {% if 'join' in request.path %}
+    <p>req {{request.path}}</p>
+    <script type="text/javascript" src="{% static 'js/join.js' %}"></script>
+
+    {% else %}
+    <p>{{request.path}}</p>
+
+        <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    {% endif %}
+
+    </body>
+
+</html>

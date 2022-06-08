@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Chat Rooms</title>
+</head>
+
+<body>
+    <h1 class="text-primary text-center">Video Chat Using Django And WebRTC</h1>
+    <form class="container" method="POST" action="">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Create a Live Session Or Enter an existing Session name to join:</label>
+            <input type="text" class="form-control" name="room" id="room" aria-describedby="emailHelp">
+            
+        </div>
+        <br>
+        <!-- <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Join a Room here:</label>
+            <input type="text" class="form-control" name="room" id="join" aria-describedby="emailHelp">
+        </div>
+         -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</body>
+
+</html>
